@@ -2,30 +2,114 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8" />
-  <title>الأذكار والأدعية</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>القرآن الكريم</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Amiri', serif;
+            text-align: center;
+            background-color: black;
+            color: white;
+            margin: 0;
+            padding: 20px;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            color: #ffcc00;
+        }
+
+        .sura-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .sura-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            width: 200px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .sura-item:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        footer {
+            margin-top: 30px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            font-size: 16px;
+            color: #ffcc00;
+        }
+    </style>
 </head>
-
 <body>
-  <div class="main-container">
-    <h1>الأذكار اليومية</h1>
-    <p>هذا الموقع صدقة جارية عن روح الشهيد باسل زينو أبو معاذ</p>
-    
-    <div class="dikr-list">
-      <a href="sabah.html" class="card">أذكار الصباح</a>
-      <a href="masaa.html" class="card">أذكار المساء</a>
-      <a href="noum.html" class="card">أذكار النوم</a>
-      
-      <a href="salat.html" class="card">أذكار بعد الصلاة</a>
-      <a href="istighfar.html" class="card">أدعية الاستغفار</a>
-    </div>
-  </div>
 
-  <footer>
+    <div class="container">
+        <h1>القرآن الكريم</h1>
+        <p>هذا الموقع صدقة جارية عن روح الشهيد باسل زينو أبو معاذ</p>
+        <div class="sura-list" id="suraList"></div>
+    </div>
+
+    <footer>
         &copy; 2025 جميع الحقوق محفوظة - Soukaina Youssef Chkirid
     </footer>
-  
+
+    <script>
+        const suraNames = [
+            "الفاتحة", "البقرة", "آل عمران", "النساء", "المائدة", "الأنعام", "الأعراف", "الأنفال", "التوبة",
+            "يونس", "هود", "يوسف", "الرعد", "إبراهيم", "الحجر", "النحل", "الإسراء", "الكهف", "مريم", "طه",
+            "الأنبياء", "الحج", "المؤمنون", "النور", "الفرقان", "الشعراء", "النمل", "القصص", "العنكبوت",
+            "الروم", "لقمان", "السجدة", "الأحزاب", "سبأ", "فاطر", "يس", "الصافات", "ص", "الزمر", "غافر",
+            "فصلت", "الشورى", "الزخرف", "الدخان", "الجاثية", "الأحقاف", "محمد", "الفتح", "الحجرات",
+            "ق", "الذاريات", "الطور", "النجم", "القمر", "الرحمن", "الواقعة", "الحديد", "المجادلة",
+            "الحشر", "الممتحنة", "الصف", "الجمعة", "المنافقون", "التغابن", "الطلاق", "التحريم",
+            "الملك", "القلم", "الحاقة", "المعارج", "نوح", "الجن", "المزمل", "المدثر", "القيامة",
+            "الإنسان", "المرسلات", "النبأ", "النازعات", "عبس", "التكوير", "الإنفطار", "المطففين",
+            "الإنشقاق", "البروج", "الطارق", "الأعلى", "الغاشية", "الفجر", "البلد", "الشمس",
+            "الليل", "الضحى", "الشرح", "التين", "العلق", "القدر", "البينة", "الزلزلة", "العاديات",
+            "القارعة", "التكاثر", "العصر", "الهمزة", "الفيل", "قريش", "الماعون", "الكوثر",
+            "الكافرون", "النصر", "المسد", "الإخلاص", "الفلق", "الناس"
+        ];
+
+        const suraListDiv = document.getElementById("suraList");
+
+        suraNames.forEach((sura, index) => {
+            const suraDiv = document.createElement("div");
+            suraDiv.className = "sura-item";
+
+            const suraLink = document.createElement("a");
+            suraLink.href = `sura.html?sura=${index + 1}`;
+            suraLink.innerText = sura;
+
+            suraDiv.appendChild(suraLink);
+            suraListDiv.appendChild(suraDiv);
+        });
+    </script>
+
 </body>
 </html>
